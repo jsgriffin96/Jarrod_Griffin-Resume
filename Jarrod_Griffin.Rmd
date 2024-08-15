@@ -1,0 +1,62 @@
+---
+name: Jarrod
+surname: Griffin
+position: "Analyst"
+phone: +1 909 225 2933
+www: jarrodgriffin.com
+email: "jarrod@jarrodgriffin.com"
+github: jsgriffin96
+linkedin: jarrod-griffin
+date: "`r format(Sys.time(), '%B %Y')`"
+output: 
+  vitae::latexcv:
+    theme: classic
+header-includes:
+   - \usepackage{enumitem}
+   - \setlist[itemize]{nosep, left=0pt}
+   - \setlist[enumerate]{nosep, left=0pt}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+```
+
+# Education
+
+```{r}
+library(tibble)
+tribble(
+  ~ Degree, ~ Year, ~ College, ~ Institution,
+  "Master of Science, Digital Marketing", "2024 - Present","Singelyn Graduate School of Business", "Cal Poly Pomona",
+  "Bachelor of Science, Computer Information Systems", "2018 - 2020", "College of Business Administration" ,"Cal Poly Pomona"
+) %>% 
+  detailed_entries(Degree, Year, College, Institution)
+```
+
+# Work Experience
+
+```{r}
+tribble(
+  ~ Years, ~ Company, ~ Duties, ~ Title,
+  "Mar. 2021 – Present", "Robert D. Niehaus, Inc.",list("Collect and analyze data for military installations across the U.S. as part of the Housing Market Analysis (HMA) team.","Compile and analyze rental and utility data for 300 military housing areas for the Basic Allowance for Housing (BAH) program","Support Tenant Satisfaction Surveys and Military Personnel Housing Surveys to assess housing quality and satisfaction","Develop and maintain R scripts to improve the efficiency and safety of data analysis processes","Interact with clients to ensure data and analysis meet their specific needs and expectations"),"Associate Analyst",
+  
+  "Mar. 2021 – Oct. 2021", "Robert D. Niehaus, Inc.",list("Performed primary data collection for the Basic Allowance for Housing (BAH) Program, ensuring accuracy and completeness","Conducted quality assurance on collected data, both electronically and physically, to maintain data integrity"),"Market Researcher",
+  
+  "Jan. 2020 – Aug. 2020", "Center for Customer Insights and Digital Marketing",list("Conduct research on product origin and local branding strategy under the guidance of Dr. Jae Min Jung","Collected, cleaned, and prepared data for analysis using SPSS and R","Tested research hypotheses using regression analysis and mediation analysis","Presented various stages of research at conferences and competitions"),"Research Associate",
+  
+  "Jul. 2020 – Dec. 2020","Center for Customer Insights and Digital Marketing",list("Created and led a six part workshops series demonstrating R programming, data wrangling, and data
+visualization to over 100 professionals, professors, and students","Recorded virtual R tutorials for use in graduate level coursework"),"Junior Marketing Scientist",
+  
+  "Aug. 2020 – Jan. 2021","Center for Customer Insights and Digital Marketing",list("Led a website navigation redesign effort","Trained and mentored others on web design, HTML/CSS, and the university's CMS","Introduced individual webpage and overall website tracking on the organization's website using Hubspot"),"Web Design and Media Analytics Team Lead",
+  
+  "Jan. 2020 – Aug. 2020","Center for Customer Insights and Digital Marketing",list("Proposed and implemented new additions and revisions for the organization's website","Determined KPIs and assessed goal achievement"),"Web Design and Media Analytics Specialist"
+  
+) %>% 
+  detailed_entries(
+    what=Title,
+    when=Years,
+    with=Company,
+    why=Duties
+  )
+```
